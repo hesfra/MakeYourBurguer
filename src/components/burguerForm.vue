@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Mensagem</p>
+        <Message :msg="msg" v-show="msg"/>
     <div>
     <form id="burguerForm" @submit="createBurguer">
         <div class="inputContainer">
@@ -39,53 +39,61 @@
 </template>
 
 <script>
+import Message from './message.vue';
 export default {
     name: "burguerForm",
-    data(){
-        return{
-        paes:null,
-        carnes:null,
-        opcionaisdata:null,
-        nome:null,
-        pao:null,
-        carne:null,
-        opcionais:[],
-        msg:null
-        }
+    data() {
+        return {
+            paes: null,
+            carnes: null,
+            opcionaisdata: null,
+            nome: null,
+            pao: null,
+            carne: null,
+            opcionais: [],
+            msg: null
+        };
     },
-    methods:{
-        async getIgredients(){
-            const req = await fetch("http://localhost:3001/ingredientes")
+    methods: {
+        async getIgredients() {
+            const req = await fetch("http://localhost:3001/ingredientes");
             const data = await req.json();
             this.paes = data.paes;
             this.carnes = data.carnes;
             this.opcionaisdata = data.opcionais;
         },
-        async createBurguer(e){
+        async createBurguer(e) {
             e.preventDefault();
-
             const data = {
-                nome:this.nome,
-                pao:this.pao,
-                carne:this.carne,
-                opcionais:Array.from(this.opcionais),
+                nome: this.nome,
+                pao: this.pao,
+                carne: this.carne,
+                opcionais: Array.from(this.opcionais),
                 status: "Solicitado"
-            }
+            };
             const DataJson = JSON.stringify(data);
-            const req = await fetch("http://localhost:3001/burgers",{
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
+            const req = await fetch("http://localhost:3001/burgers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
                 },
-                body:DataJson
-            })
+                body: DataJson
+            });
             const res = await req.json();
 
+            //mensagem de sistema
+            this.msg= `Pedido ${res.id} realizado com sucesso!`;
+
+            //limpar mensagem de sistema
+            setTimeout(() => {
+                this.msg = "";
+            }, 3000);
         }
     },
-    mounted(){
+    mounted() {
         this.getIgredients();
     },
+    components: { Message }
 }
 </script>
 
