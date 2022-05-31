@@ -5,24 +5,24 @@ import Footer from './components/footer.vue';
 
 
 export default {
-    components: {
+  components: {
     Navbar,
     RouterView,
     Footer,
-    },
-    data(){
-      return {
-        logo_src: "/img/logo.png",
-        app_name: "Make Your Burger",
-      }
+  },
+  data() {
+    return {
+      logo_src: "/img/logo.png",
+      app_name: "Make Your Burger",
     }
-    
+  }
+
 }
 
 </script>
 
 <template>
-<div>
+  <div>
     <Navbar :logo="logo_src" :alt="app_name" />
     <div>
       <router-view></router-view>
@@ -32,20 +32,22 @@ export default {
 </template>
 
 <style>
-*{
+* {
   font-family: Helvetica;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.mainContainer{
-  margin:50px;
+
+.mainContainer {
+  margin: 50px;
   min-height: 250px;
 }
-h1{
+
+h1 {
   text-align: center;
-  font-size:42px;
-  margin-bottom:30px;
-  color:#222;
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #222;
 }
 </style>
