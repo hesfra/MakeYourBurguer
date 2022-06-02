@@ -13,7 +13,7 @@ name: "Banner",
 <style scoped>
 .mainBanner{
     background-image: url('/img/burger.jpg');
-    background-position: 0 -390px;
+    background-position: 0% 60%;
     background-size: cover;
     display: flex;
     align-items: center;

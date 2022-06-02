@@ -98,7 +98,7 @@
         "Salame",
         "Cebola roxa"
       ],
-      "status": "Solicitado",
+      "status": 2,
       "id": 4
     },
     {
@@ -109,7 +109,7 @@
         "Bacon",
         "Cheddar"
       ],
-      "status": "Solicitado",
+      "status": 2,
       "id": 5
     },
     {
@@ -120,49 +120,8 @@
         "Bacon",
         "Cheddar"
       ],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 6
-    },
-    {
-      "nome": "TESTE",
-      "pao": "3 Queijos",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Solicitado",
-      "id": 7
-    },
-    {
-      "nome": "TESTE",
-      "pao": "3 Queijos",
-      "carne": "Alcatra",
-      "opcionais": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Solicitado",
-      "id": 8
-    },
-    {
-      "nome": "TESTE",
-      "pao": "3 Queijos",
-      "carne": "Picanha",
-      "opcionais": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Solicitado",
-      "id": 9
-    },
-    {
-      "nome": null,
-      "pao": null,
-      "carne": null,
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 10
     }
   ]
 }

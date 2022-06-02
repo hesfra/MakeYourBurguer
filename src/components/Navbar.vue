@@ -25,7 +25,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    position:fixed;
+    position:sticky;
     width: 100%;
     top:0;
 }
