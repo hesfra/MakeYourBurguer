@@ -12,8 +12,8 @@ name: "Footer",
 
 <style scoped>
 #footer{
-  position:static;
-  height: 100px;
+  position: sticky;
+  height: 60px;
   background-color: #222;
   border-top: 4px solid #111;
   color:#fcba03;

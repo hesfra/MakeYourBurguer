@@ -25,6 +25,9 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position:fixed;
+    width: 100%;
+    top:0;
 }
 
 #logoUrl {

@@ -42,6 +42,9 @@ export default {
 .mainContainer {
   margin: 50px;
   min-height: 250px;
+  margin-top: 100px;
+  padding-bottom: 100px;
+  
 }
 
 h1 {

@@ -1,40 +1,40 @@
 <template>
     <div>
-        <Message :msg="msg" v-show="msg"/>
-    <div>
-    <form id="burguerForm" @submit="createBurguer">
-        <div class="inputContainer">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Nome" v-model="nome" />
-        </div>
+        <Message :msg="msg" v-show="msg" />
+        <div>
+            <form id="burguerForm" @submit="createBurguer">
+                <div class="inputContainer">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome" v-model="nome" />
+                </div>
 
-        <div class="inputContainer">
-            <label for="pao">Escolha um pão</label>
-            <select name="pao" id="pao" v-model="pao">
-                <option v-for="pao in paes" :key="pao.id" :value="pao.tipo">{{ pao.tipo }}
-                </option>
-                <option value="integral">Integral</option>
-            </select>
-        </div>
+                <div class="inputContainer">
+                    <label for="pao">Escolha um pão</label>
+                    <select name="pao" id="pao" v-model="pao">
+                        <option v-for="pao in paes" :key="pao.id" :value="pao.tipo">{{ pao.tipo }}
+                        </option>
+                        <option value="integral">Integral</option>
+                    </select>
+                </div>
 
-        <div class="inputContainer">
-            <label for="carne">Escolha a carne do seu Burguer</label>
-            <select name="carne" id="carne" v-model="carne">
-                <option v-for="carne in carnes" :key="carne.id" :value="carne.tipo">{{ carne.tipo }}
-                </option>
-            </select>
-        </div>
+                <div class="inputContainer">
+                    <label for="carne">Escolha a carne do seu Burguer</label>
+                    <select name="carne" id="carne" v-model="carne">
+                        <option v-for="carne in carnes" :key="carne.id" :value="carne.tipo">{{ carne.tipo }}
+                        </option>
+                    </select>
+                </div>
 
-        <div  id="OpcionaisContainer"  class="inputContainer">
-            <label id="opcionaisTitle" for="opcionais">Escolha os opcionais</label>
-            <div class="checkboxContainer" v-for="opcional in opcionaisdata" :key="opcional.id">
-             <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
-             <span>{{opcional.tipo}}</span> 
-            </div>
+                <div id="OpcionaisContainer" class="inputContainer">
+                    <label id="opcionaisTitle" for="opcionais">Escolha os opcionais</label>
+                    <div class="checkboxContainer" v-for="opcional in opcionaisdata" :key="opcional.id">
+                        <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
+                        <span>{{ opcional.tipo }}</span>
+                    </div>
+                </div>
+                <input type="submit" value="Criar meu Burguer!" class="submitBtn" />
+            </form>
         </div>
-        <input type="submit" value="Criar meu Burguer!" class="submitBtn" />
-    </form>
-    </div>
     </div>
 </template>
 
@@ -82,7 +82,7 @@ export default {
             const res = await req.json();
 
             //mensagem de sistema
-            this.msg= `Pedido ${res.id} realizado com sucesso!`;
+            this.msg = `Pedido ${res.id} realizado com sucesso!`;
 
             //limpar mensagem de sistema
             setTimeout(() => {
@@ -98,66 +98,78 @@ export default {
 </script>
 
 <style scoped>
-#burguerForm{
+#burguerForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 100%;
     max-width: 400px;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.inputContainer{
-    display:flex;
+
+.inputContainer {
+    display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
-label{
+
+label {
     font-weight: bold;
     margin-bottom: 15px;
-    color:#222;
+    color: #222;
     padding: 5px 10px;
     border-left: 4px solid #fcba03;
 }
-input, select{
+
+input,
+select {
     padding: 5px 10px;
     width: 300px;
 }
-#OpcionaisContainer{
+
+#OpcionaisContainer {
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
-#opcionaisTitle{
+
+#opcionaisTitle {
     width: 100%;
 }
-.checkboxContainer{
+
+.checkboxContainer {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     width: 50%;
     margin-bottom: 20px;
 }
-.checkboxContainer span, .checkboxContainer input{
+
+.checkboxContainer span,
+.checkboxContainer input {
     width: auto;
 }
-.checkboxContainer span{
+
+.checkboxContainer span {
     margin-right: 6px;
     font-weight: bold;
 }
-.submitBtn{
+
+.submitBtn {
     background-color: #222;
     color: #fcba03;
     border: 2px solid #222;
     padding: 10px;
     font-weight: bold;
     font-size: 16px;
-    margin:0 auto;
-    cursor:pointer;
+    cursor: pointer;
     transition: 0.5s;
+    
 }
-.submitBtn:hover{
+
+.submitBtn:hover {
     background-color: transparent;
     color: #222;
-    
+
 }
 </style>
