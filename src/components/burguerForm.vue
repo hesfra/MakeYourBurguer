@@ -158,5 +158,6 @@ input, select{
 .submitBtn:hover{
     background-color: transparent;
     color: #222;
+    
 }
 </style>
